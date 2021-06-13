@@ -133,10 +133,10 @@ class EncoderHier(nn.Module):
     def __init__(self, K, D=64, bias=True):
         super().__init__()
 
-        if K > 64:
+        if K == 64:
             self.enc = EncoderHier(K // 2, D, bias=bias)
 
-        elif K == 64:
+        elif K == 32:
             self.enc = EncoderDeep(K // 2, D, bias=bias)
 
         else:
